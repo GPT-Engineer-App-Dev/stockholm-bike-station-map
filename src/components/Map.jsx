@@ -18,17 +18,15 @@ const Map = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch bike pump stations data
-    fetch('https://api.example.com/bike-pump-stations') // Replace with actual API endpoint
-      .then(response => response.json())
-      .then(data => {
-        setStations(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching bike pump stations:', error);
-        setLoading(false);
-      });
+    // Hardcoded bike pump stations data
+    const hardcodedStations = [
+      { id: 1, name: 'Central Station', address: 'Centralplan 15', latitude: 59.3293, longitude: 18.0686 },
+      { id: 2, name: 'Kungsträdgården', address: 'Jussi Björlings allé', latitude: 59.3303, longitude: 18.0716 },
+      { id: 3, name: 'Stureplan', address: 'Stureplan', latitude: 59.3367, longitude: 18.0737 }
+    ];
+
+    setStations(hardcodedStations);
+    setLoading(false);
   }, []);
 
   if (loading) {
